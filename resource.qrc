@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>picture/face.jpg</file>
+        <file>picture/finger.jpg</file>
+        <file>picture/password.jpg</file>
+        <file>picture/addUser.png</file>
+        <file>picture/quit.png</file>
+        <file>picture/setting.png</file>
+        <file>picture/users.png</file>
+        <file>picture/about.png</file>
+        <file>picture/turn.png</file>
+        <file>picture/camera.png</file>
+        <file>picture/car.png</file>
+        <file>picture/monitor.png</file>
+    </qresource>
+</RCC>
