@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(serial,&Serial::readyRead,this,[=]()
     {
         qDebug()<<serial->read();
+        //可以的
     });
 
     angleTime = new QTimer();
