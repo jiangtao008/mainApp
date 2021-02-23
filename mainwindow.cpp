@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
         qDebug()<<"open serial failed!";
     connect(serial,&Serial::readyRead,this,[=]()
     {
-        //qDebug()<<serial->read();
+        qDebug()<<serial->read();
     });
 
     angleTime = new QTimer();
@@ -54,7 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    digitalWrite(1, HIGH);
     delete ui;
 }
 void MainWindow::on_pushButton_about_clicked()      //关于本机
@@ -62,36 +61,26 @@ void MainWindow::on_pushButton_about_clicked()      //关于本机
     subWinAboutApp = new AboutAppWin();
     subWinAboutApp->show();
 }
-
 void MainWindow::on_pushButton_setting_clicked()    //设置界面
 {
     subWinSetting = new SettingWin();
     subWinSetting->show();
 }
-
 void MainWindow::on_pushButton_camera_clicked()     //相机
 {
     subWinCamera = new CameraWin();
     subWinCamera->show();
 }
-
 void MainWindow::on_pushButton_users_clicked()      //用户列表（管理员模式下）
 {
     subWinUserManage = new UserManageWin();
     subWinUserManage->show();
-    connect(subWinUserManage,&UserManageWin::close,this,[=]{
-        qDebug()<<"..........quit";
-        subWinUserManage = nullptr;
-    });
 }
-
 void MainWindow::on_pushButton_car_clicked()
 {
     subWinCar = new CarWin();
     subWinCar->show();
 }
-
-
 void MainWindow::on_pushButton_monitor_clicked()
 {
     subWinMonitor = new MonitorWin();
@@ -130,5 +119,9 @@ void MainWindow::screenOff()    //进入休眠
     int res = system("xset dpms force off");
     if(res)
         screenState = 0;
+}
+void init()
+{
+
 }
 
